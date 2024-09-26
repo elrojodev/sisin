@@ -17,10 +17,10 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "TrasaccionEvento")
+@Table(name = "TransaccionEvento")
 @Getter
 @Setter
-public class TrasaccionEvento {
+public class TransaccionEvento {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -32,13 +32,13 @@ public class TrasaccionEvento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tvo_tte_id", nullable = false)
-    private TrasaccionTipoEvento tvoTte;
+    private TransaccionTipoEvento tvoTte;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "aeronaves_anv_id")
     private Aeronave aeronavesAnv;
 
     @OneToMany(mappedBy = "tceTvo")
-    private Set<Transaccion> tceTvoTransacciones;
+    private Set<Transaccion> tceTvoTransaccion;
 
 }
